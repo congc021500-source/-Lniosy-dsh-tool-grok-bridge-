@@ -1,0 +1,66 @@
+{
+  "name": "dsh-tool-grok-bridge",
+  "version": "0.1.0",
+  "description": "Bidirectional DeepSeek Harness plugin: grok_bot tools plus a local MCP bridge for Grok Bot. Display name: Grok Bot 双向桥.",
+  "type": "module",
+  "main": "./lib/grok/index.js",
+  "icon": "./icon.png",
+  "exports": {
+    ".": "./lib/grok/index.js",
+    "./grok": "./lib/grok/index.js",
+    "./bridge": "./lib/bridge/index.js",
+    "./client": "./lib/bridge/client.js",
+    "./cordis.patch.yml": "./cordis.patch.yml",
+    "./package.json": "./package.json",
+    "./locale/*.json": "./locale/*.json"
+  },
+  "files": [
+    "lib/",
+    "bin/",
+    "scripts/",
+    "locale/",
+    "examples/",
+    "cordis.patch.yml",
+    "install.ps1",
+    "uninstall.ps1",
+    "icon.png",
+    "docs/logo.png",
+    "README.md",
+    "README.en.md",
+    "SECURITY.md",
+    "LICENSE"
+  ],
+  "bin": {
+    "dsh-bridge-mcp": "./bin/dsh-bridge-mcp.mjs"
+  },
+  "scripts": {
+    "test": "node --test test/*.test.js",
+    "check": "node -e \"const fs=require('fs'); const p=JSON.parse(fs.readFileSync('package.json','utf8')); if(p.name!=='dsh-tool-grok-bridge'){console.error(p.name); process.exit(1)}\" && node --check lib/grok/index.js && node --check lib/grok/guide.js && node --check lib/grok/memory.js && node --check lib/grok/more.js && node --check lib/grok/session.js && node --check lib/bridge/index.js && node --check lib/bridge/server.js && node --check lib/bridge/tasks.js && node --check lib/bridge/agent.js && node --check lib/bridge/client.js && node --check lib/tunnel/url.js && node --check bin/dsh-bridge-mcp.mjs && node --check scripts/profile-package.mjs"
+  },
+  "engines": {
+    "node": ">=22"
+  },
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/congc021500-source/-Lniosy-dsh-tool-grok-bridge-.git"
+  },
+  "homepage": "https://github.com/congc021500-source/-Lniosy-dsh-tool-grok-bridge-#readme",
+  "dsh": {
+    "bundle": {
+      "patch": "./cordis.patch.yml"
+    },
+    "client": {
+      "platform": "web",
+      "inject": [
+        "@deepseek-ai/dsh-client-ui-settings",
+        "@deepseek-ai/dsh-client-ui-slots",
+        "@deepseek-ai/dsh-client-web-react"
+      ]
+    }
+  },
+  "peerDependencies": {
+    "@deepseek-ai/dsh-tools": "^0.2.1-rc.5",
+    "@deepseek-ai/cordis": "^4.0.1"
+  }
+}

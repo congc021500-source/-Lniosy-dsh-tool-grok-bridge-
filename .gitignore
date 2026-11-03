@@ -1,0 +1,9 @@
+node_modules/
+*.log
+.env
+.env.*
+!.env.example
+cloudflared*
+grok-bot.json
+.DS_Store
+Thumbs.db

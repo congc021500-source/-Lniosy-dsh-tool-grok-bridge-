@@ -1,0 +1,23 @@
+# dsh-tool-grok-bridge
+# Forward tools load dsh-tool-grok-bridge/grok. Reverse MCP loads dsh-tool-grok-bridge/bridge.
+# The bridge listener stays off until Settings -> General -> Codex Bridge is turned on.
+# install.ps1 replaces DSH_TOOL_GROK_BRIDGE_DEFAULT_CWD with the quoted -DefaultCwd path.
+- insert:
+    - id: grok-bot
+      name: dsh-tool-grok-bridge/grok
+    - id: mcp-bridge
+      name: dsh-tool-grok-bridge/bridge
+      config:
+        host: 127.0.0.1
+        port: 8931
+        basePath: /mcp
+        serverName: dsh-bridge
+        controlPath: /dsh-bridge/control
+        authToken: ''
+        defaultProvider: fork
+        defaultAgentPreset: standard
+        defaultCwd: DSH_TOOL_GROK_BRIDGE_DEFAULT_CWD
+        workspaceRoots:
+          - DSH_TOOL_GROK_BRIDGE_DEFAULT_CWD
+        maxDepth: 2
+        taskTimeoutMs: 0
