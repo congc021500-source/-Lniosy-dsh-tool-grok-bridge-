@@ -1,0 +1,6 @@
+{
+  "meta": {
+    "title": "Grok Bot 双向桥",
+    "description": "在对话里问 Grok Bot，并用本机 MCP 桥让 Grok Bot 指挥 DSH。"
+  }
+}
