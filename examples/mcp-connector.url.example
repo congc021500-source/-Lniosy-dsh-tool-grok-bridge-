@@ -1,0 +1,4 @@
+# Shape of the Grok Bot MCP connector URL.
+# Replace <subdomain> with the hostname printed by scripts/start-tunnel.ps1.
+# Do not commit a live quick-tunnel URL. The hostname changes every restart.
+https://<subdomain>.trycloudflare.com/mcp
